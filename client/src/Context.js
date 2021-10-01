@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Data from './Data';
 import Cookies from 'js-cookie';
 
@@ -21,24 +21,28 @@ export const Context = React.createContext();
 export const Provider = ({children}) => {
     const data = new Data(); // I have access to any functions stated in the class Data
 
-    /*const [ authenticatedUser, setAuthenticatedUser ] = useState(
-        Cookies.getJSON("authenticatedUser") || null
+   /* const [ authenticatedUser, setAuthenticatedUser ] = useState(
+        Cookies.get("authenticatedUser") || null
     );*/
     const [authenticatedUser,setAuthenticatedUser ] = 
     useState(() => {
       const cookie = Cookies.get('authenticatedUser');
       return (cookie ? JSON.parse(cookie) : null);
   });
+    console.log("authenticateduser from state...");
+    console.log(authenticatedUser)
+
 
 
     const signIn = async (emailAddress, password)  => {
         const user = await data.getUser(emailAddress, password)
-        console.log("user from signin is: " + user) // I'am getting null due response.status is 401 and this return null
         if (user !== null) {
-          setAuthenticatedUser({...user,...password})
+          setAuthenticatedUser({...user,...password}) // / it's not adding the password to authenticatedUser???
         }
+        console.log("authenticated user from signIn()..."); 
+        console.log(authenticatedUser) // not output
         Cookies.set('authenticatedUser', JSON.stringify(user), { expires: 1})
-
+        
         return user
       }
 

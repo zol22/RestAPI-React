@@ -11,7 +11,7 @@ const Courses = () => {
     const [ courses, setCourses ] = useState([]);
     const history = useHistory();
 
-      // get courses
+    // get courses
     useEffect(() => {
         data.getCourses()
         .then((response) => {
@@ -21,7 +21,7 @@ const Courses = () => {
             history.push("/error");
             console.log(error);
         });
-    }, [ data, history ]);
+    }, []);
 
 
     return(

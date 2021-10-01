@@ -46,9 +46,9 @@ router.post('/users', asyncHandler(async (req, res) => {
       }
       if (!user.password) {
         errors.push('Please provide a password');
-      } else {
+      } /*else {
         user.password = bcrypt.hashSync(user.password, 10);
-      }
+      }*/
       
       if (errors.length > 0) {
         res.status(400).json({ errors });

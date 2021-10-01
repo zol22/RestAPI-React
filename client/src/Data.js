@@ -33,7 +33,7 @@ export default class Data {
         */
         if (requiresAuth) {    
           const encodedCredentials = btoa(`${credentials.emailAddress}:${credentials.password}`);
-          console.log(credentials)
+          //console.log(credentials)
           options.headers['Authorization'] = `Basic ${encodedCredentials}`;
         }
         return fetch(url, options);
@@ -49,8 +49,7 @@ export default class Data {
     */
     async getUser(emailAddress, password) {
         const response = await this.api(`/users`, 'GET', null, true, { emailAddress, password });
-        console.log("response from getUser...");
-        console.log(response) 
+        //console.log(response) 
         if (response.status === 200) {
         return response.json().then(data => data);
         }
@@ -96,7 +95,7 @@ export default class Data {
     */
     async getCourses(){
         const response = await this.api('/courses', 'GET');
-        console.log(response)
+        //console.log(response)
         if (response.status === 200) {
             return response.json().then(data => data);
         }

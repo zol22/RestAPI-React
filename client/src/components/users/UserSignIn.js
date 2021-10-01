@@ -14,14 +14,14 @@ const UserSignIn = () => {
     const [ errors, setErrors ] = useState([]);
     const history = useHistory();
     let location = useLocation();
-    console.log(location)
+    //console.log(location)
 
     /* 
         location.state was saved in PrivateRoute.js for CreateCourse and Updatecourse routes;
         In other routes, set the location.state to { from: { pathname: "/" } }
     */
     const { from } = location.state || { from: { pathname: "/" } };
-    console.log(location)
+    //console.log(location)
 
     const handleSubmit = (e) => {
         e.preventDefault();

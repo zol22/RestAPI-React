@@ -10,7 +10,8 @@ const Header = () => {
                                                                 "lastName": "Smith",
                                                                 "emailAddress": "joe@smith.com"
                                                         }*/
-console.log(authenticatedUser)
+//console.log(authenticatedUser)
+
     return(
             <header>
                 <div className="wrap header--flex">
@@ -20,7 +21,7 @@ console.log(authenticatedUser)
                         authenticatedUser
                         ? <ul className="header--signedout">
                             <li>
-                            Welcome, {authenticatedUser[0].firstName}!
+                            Welcome, {authenticatedUser.firstName}!
                             </li>
                             <li>
                             <Link to="/signout">
