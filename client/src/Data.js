@@ -53,7 +53,7 @@ export default class Data {
         if (response.status === 200) {
         return response.json().then(data => data);
         }
-        else if (response.status === 401) { // Why I'm getting 401 status when signup?
+        else if (response.status === 401) { 
         return null; 
         }
         else {
