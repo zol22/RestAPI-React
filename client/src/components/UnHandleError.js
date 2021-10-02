@@ -1,8 +1,8 @@
 import React from 'react';
 
-const HandleError = () => (
+const UnHandleError = () => (
   <div className="bounds">
     <h1>ups! Error!</h1>
   </div>
 );
-export default HandleError;
+export default UnHandleError;

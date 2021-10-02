@@ -9,7 +9,8 @@ import UserSignIn from "./components/users/UserSignIn";
 import UserSignUp from "./components/users/UserSignUp";
 import UserSignOut from "./components/users/UserSignOut";
 import NotFound from "./components/NotFound";
-import HandleError from "./components/HandleError";
+import Forbidden from "./components/Forbidden";
+import UnHandleError from "./components/UnHandleError";
 
 import PrivateRoute from './PrivateRoute';
 
@@ -28,14 +29,15 @@ const App = () => {
           <PrivateRoute path="/courses/create" component={CreateCourse} />
           <PrivateRoute path="/courses/:id/update" component={UpdateCourse} />
 
-
           <Route path="/courses/:id" component={CourseDetail} />
           <Route path="/signin" component={UserSignIn} />
           <Route path="/signup" component={UserSignUp} />
           <Route path="/signout" component={UserSignOut} />
-          <Route path="/error" component={HandleError}/>
+
+          {/* Errors routes*/}
+          <Route path="/error" component={UnHandleError}/>
           <Route path="/notfound" component={NotFound}/>
-          <Route path="/forbidden" component={NotFound}/>
+          <Route path="/forbidden" component={Forbidden}/>
           <Route component={NotFound} />
 
 
