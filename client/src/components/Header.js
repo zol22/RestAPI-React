@@ -8,7 +8,8 @@ const Header = () => {
     const { authenticatedUser } = useContext(Context); // to access Context authenticatedUser state (it's the data returned from the user, example:
                                                         /*{     "firstName": "Joe",
                                                                 "lastName": "Smith",
-                                                                "emailAddress": "joe@smith.com"
+                                                                "emailAddress": "joe@smith.com",
+                                                                "id": 1
                                                         }*/
 //console.log(authenticatedUser)
 
