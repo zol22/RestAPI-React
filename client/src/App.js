@@ -35,6 +35,7 @@ const App = () => {
           <Route path="/signout" component={UserSignOut} />
           <Route path="/error" component={HandleError}/>
           <Route path="/notfound" component={NotFound}/>
+          <Route path="/forbidden" component={NotFound}/>
           <Route component={NotFound} />
 
 

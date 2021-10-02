@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState} from 'react';
 import Data from './Data';
 import Cookies from 'js-cookie';
 
@@ -37,10 +37,9 @@ export const Provider = ({children}) => {
     const signIn = async (emailAddress, password)  => {
         const user = await data.getUser(emailAddress, password)
         if (user !== null) {
-          setAuthenticatedUser({...user,...password}) // / it's not adding the password to authenticatedUser???
+          setAuthenticatedUser({...user, ...{password } }) 
         }
-        console.log("authenticated user from signIn()..."); 
-        console.log(authenticatedUser) // not output
+      
         Cookies.set('authenticatedUser', JSON.stringify(user), { expires: 1})
         
         return user

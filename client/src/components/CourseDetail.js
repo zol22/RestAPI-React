@@ -16,9 +16,10 @@ const CourseDetail = () => {
     const [ course, setCourse ] = useState({});
     const [ user, setUser ] = useState({});
     const { id } = useParams();
-
-
     const history = useHistory();
+
+    console.log("from course detail...")
+    console.log(course)
 
     //gets course detail
     useEffect(() => {
@@ -27,7 +28,6 @@ const CourseDetail = () => {
             if (response) {
             setCourse(response);
             setUser(response.User);
-            console.log(user)
             } else if (!course.id) {
             // if course.id doesn't exist, redirects to
             // NotFound Component
@@ -36,13 +36,16 @@ const CourseDetail = () => {
             }
         })
         .catch(() => history.push("/error"));
-    }, []);
+    }, [ data, 
+        id, 
+        history, 
+        course.id]);
 
-    /*const handleDeleteCourse = (e) => {
-        e.preventDefaul();
+    const handleDeleteCourse = (e) => {
+        e.preventDefault();
         data.deleteCourse(
             authenticatedUser.emailAddress, 
-            userPassword,
+            authenticatedUser.password,
             id
         )
           .then(() => {
@@ -53,14 +56,14 @@ const CourseDetail = () => {
             history.push("/error");
             console.log(error);
           });
-      };*/
+      };
     
 
 
     return(
         <main>
-            {/*<div className="actions--bar">
-                <div className="wrap">*/}
+            <div className="actions--bar">
+                <div className="wrap">
 
                 {/* 
                     Add rendering logic so that the "Update Course" and "Delete Course" buttons only 
@@ -69,7 +72,7 @@ const CourseDetail = () => {
                     And the authenticated user's ID matches that of the user who owns the course.
                 */}
                   
-                    {/*
+                    {
                     (authenticatedUser && authenticatedUser.id  === course.userId)
                     ? <>
                         <Link 
@@ -95,7 +98,7 @@ const CourseDetail = () => {
                     Return to List
                     </Link>
                 </div>
-            </div>*/}
+            </div>
     
             <div className="wrap">
             <h2>Course Detail</h2>

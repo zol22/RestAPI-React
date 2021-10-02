@@ -36,7 +36,7 @@ router.get('/courses/:id',asyncHandler(async (req, res) => {
         model: User,
         attributes: { exclude: ['password', 'createdAt', 'updatedAt'] },
       },
-    });
+    }); // This is supposed to return estimatedTime and materialsNeed if they are present but they are not returned!!
 
     if (course) {
       res.status(200).json(course);
