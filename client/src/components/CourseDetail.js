@@ -28,9 +28,8 @@ const CourseDetail = () => {
             if (response) {
             setCourse(response);
             setUser(response.User);
-            } else if (!course.id) {
-            // if course.id doesn't exist, redirects to
-            // NotFound Component
+            } else  {
+            // redirect to notfound page if the requested course isn't returned from the REST API
             history.push("/notfound");
             console.log("Im sorry, but the course you're looking for doesn't exist.");
             }
