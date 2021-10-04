@@ -36,10 +36,10 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    estimatedtime: {
+    estimatedTime: {
         type: DataTypes.STRING, 
       },
-    materialsneeded: {
+    materialsNeeded: {
         type: DataTypes.STRING,
       }
   }, {

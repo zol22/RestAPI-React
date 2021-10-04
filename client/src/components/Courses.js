@@ -21,7 +21,7 @@ const Courses = () => {
             history.push("/error");
             console.log(error);
         });
-    }, []);
+    }, [data,history]);
 
 
     return(

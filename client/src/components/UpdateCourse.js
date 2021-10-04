@@ -10,7 +10,7 @@ const UpdateCourse = () => {
     const { data, authenticatedUser } = useContext(Context); // from signin/signup
     const [ validationErrors, setErrors ] = useState([]);
 
-    const [ course, setCourse ] = useState({});
+    //const [ course, setCourse ] = useState({});
     const [ author, setAuthor ] = useState({}); // User owner of the courses. It's is set it when it fetch (Get the course we are going to edit)
     const [ title, setTitle ] = useState("");
     const [ description, setDescription ] = useState("");
@@ -31,7 +31,7 @@ const UpdateCourse = () => {
                 /* Check if the authenticated user's id (from signin/signup) matches the user id who owns the course. */
               if (response.userId === authenticatedUser.id) {
                 setIsLoading(false);
-                setCourse(response);
+                //setCourse(response);
                 setTitle(response.title);
                 setDescription(response.description);
                 setEstimatedTime(response.estimatedTime);

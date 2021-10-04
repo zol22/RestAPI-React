@@ -18,8 +18,8 @@ const CourseDetail = () => {
     const { id } = useParams();
     const history = useHistory();
 
-    console.log("from course detail...")
-    console.log(course)
+   //console.log("from course detail...")
+    //console.log(course)
 
     //gets course detail
     useEffect(() => {
