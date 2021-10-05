@@ -10,10 +10,14 @@ const CreateCourse = () => {
     
     const [userId] = useState(authenticatedUser.id)
     const [password] = useState(authenticatedUser.password)
+    
     const [ title, setTitle ] = useState("");
     const [ description, setDescription ] = useState("");
     const [ estimatedTime, setEstimatedTime ] = useState("");
     const [ materialsNeeded, setMaterialsNeeded ] = useState("");
+
+    //console.log("from createcourse...")
+    //console.log(password)
 
 
     const handleValueChange = (e) => {

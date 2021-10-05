@@ -29,8 +29,10 @@ export const Provider = ({children}) => {
       const cookie = Cookies.get('authenticatedUser');
       return (cookie ? JSON.parse(cookie) : null);
   });
+      //const [password,setPassword] = useState("");
     console.log("authenticateduser from state...");
     console.log(authenticatedUser)
+   // console.log(password)
 
 
 
@@ -38,6 +40,7 @@ export const Provider = ({children}) => {
         const user = await data.getUser(emailAddress, password)
         if (user !== null) {
           setAuthenticatedUser({...user, ...{password } }) 
+          //setPassword(password);
         }
       
         Cookies.set('authenticatedUser', JSON.stringify(user), { expires: 1})
@@ -53,6 +56,7 @@ export const Provider = ({children}) => {
         //passing state and functions for use through context
     const value = {
         authenticatedUser,
+        //password,
         data,
         actions: {
             signIn: signIn,
