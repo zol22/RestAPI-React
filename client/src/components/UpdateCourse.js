@@ -26,7 +26,6 @@ const UpdateCourse = () => {
     useEffect(() => {
         data.getCourse(id)
           .then((response) => {
-            if (response) {
                 /* Check if the authenticated user's id (from signin/signup) matches the user id who owns the course. */
               if (response.userId === authenticatedUser.id) {
                 setIsLoading(false);
@@ -40,11 +39,8 @@ const UpdateCourse = () => {
                   /*Redirect to the forbidden path which means they dont have access to update the course */
                 history.push("/forbidden");
               }
-            } else {
-              history.push("/notfound");
-            }
           })
-          .catch(() => history.push("/error"));
+          .catch(() => history.push("/notfound"));
       }, [data, id, history, authenticatedUser.id]);
 
     const handleValueChange = (e) => {
