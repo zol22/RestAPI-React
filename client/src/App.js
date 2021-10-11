@@ -22,9 +22,7 @@ const App = () => {
     <Router>
       <Header/>
       <Switch>
-          <Route exact path='/' component={ () => <Redirect to="/courses" />}/>
-          <Route exact path="/courses" component={Courses} />
-          
+          <Route exact path='/' component={Courses}/>
           {/* keeps the state:{ from : props.location} */}
           <PrivateRoute path="/courses/create" component={CreateCourse} />
           <PrivateRoute path="/courses/:id/update" component={UpdateCourse} />

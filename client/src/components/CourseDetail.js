@@ -34,7 +34,7 @@ const CourseDetail = () => {
             console.log("Im sorry, but the course you're looking for doesn't exist.");
             }
         })
-        .catch(() => history.push("/error"));
+        .catch(() => history.push("/notfound"));
     }, [ data, 
         id, 
         history, 
